@@ -13,7 +13,6 @@ p source
 jwt_auth_args = {
       secret: nil,
       options: {
-        cookie_name: 'app.at',
         iss: ENV['FUSIONAUTH_LOCATION'],
         verify_iss: true,
         aud: ENV['CLIENT_ID'],

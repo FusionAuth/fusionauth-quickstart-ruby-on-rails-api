@@ -8,8 +8,8 @@ class MessagesController < ApplicationController
       if request.env['jwt.payload'] && request.env['jwt.payload']['roles']
         roles = request.env['jwt.payload']['roles']
       end
-      if roles.include?('ceo') 
-        messages << "Hiya, boss"
+      if roles.include?('teller') 
+        messages << "Teller"
       end
       render json: { messages: messages }.to_json, status: :ok
     end
