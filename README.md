@@ -44,6 +44,7 @@ Install the dependencies via the Gemfile
 ```
 cd complete-application
 bundle install
+bundle e rails s -p 4001
 ```
 
 The app is now serving two api endpoints
@@ -76,8 +77,6 @@ or
 curl --location --request POST 'http://localhost:9001/panic' \
 --header 'Authorization: Bearer {replaceWithToken}'
 ```
-
-
 
 ### Further Information
 
