@@ -6,7 +6,7 @@ class PanicController < ApplicationController
         roles = request.env['jwt.payload']['roles']
       end
       if (roles & ['teller']).empty?
-        render json: { message: "You must be a teller for this action." }.to_json, status: :unauthorized
+        render json: { message: "Proper role not found for user." }.to_json, status: :unauthorized
         return
       end
 
