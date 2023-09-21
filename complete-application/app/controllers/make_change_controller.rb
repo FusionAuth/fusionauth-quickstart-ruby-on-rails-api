@@ -33,6 +33,6 @@ class MakeChangeController < ApplicationController
         message += " " + coinCount.to_s + " " + coinName
       end
 
-      render json: { total: remainingAmount, message:message }.to_json, status: :ok
+      render json: { message:message }.to_json, status: :ok
     end
   end
