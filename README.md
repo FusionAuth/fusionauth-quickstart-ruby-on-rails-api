@@ -48,8 +48,8 @@ bundle e rails s -p 4001
 ```
 
 The app is now serving two api endpoints
- - [http://localhost:9001/make-change](http://localhost:9001/make-change) - this endpoint calculates the change to make from a given total
- - [http://localhost:9001/panic](http://localhost:9001/panic) - this endpoint simulates notifying the police of an incident.
+ - [http://localhost:4001/make-change](http://localhost:4001/make-change) - this endpoint calculates the change to make from a given total
+ - [http://localhost:4001/panic](http://localhost:4001/panic) - this endpoint simulates notifying the police of an incident.
 
 You can login with a user preconfigured during Kickstart, `teller@example.com` with the password of `password` and `applicationId` by calling:
 
@@ -67,14 +67,14 @@ curl --location 'https://local.fusionauth.io/api/login' \
 You can take the token from the response and then call one of the endpoints listed above by calling:
 
 ```sh
-curl --location 'http://localhost:9001/make-change?total=5.12' \
+curl --location 'http://localhost:4001/make-change?total=5.12' \
 --header 'Authorization: Bearer {replaceWithToken}'
 ```
 
 or
 
 ```sh
-curl --location --request POST 'http://localhost:9001/panic' \
+curl --location --request POST 'http://localhost:4001/panic' \
 --header 'Authorization: Bearer {replaceWithToken}'
 ```
 
