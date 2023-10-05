@@ -68,14 +68,14 @@ You can take the token from the response and then call one of the endpoints list
 
 ```sh
 curl --location 'http://localhost:4001/make-change?total=5.12' \
---header 'Authorization: Bearer {replaceWithToken}'
+--cookie 'app.at=<your_token>'
 ```
 
 or
 
 ```sh
 curl --location --request POST 'http://localhost:4001/panic' \
---header 'Authorization: Bearer {replaceWithToken}'
+--cookie 'app.at=<your_token>'
 ```
 
 ### Further Information
