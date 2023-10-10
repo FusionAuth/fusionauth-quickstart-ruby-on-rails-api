@@ -24,15 +24,18 @@ class MakeChangeController < ApplicationController
         0.01 => "pennies"
       }
 
+      output = {
+        Message: message,
+        Change: []
+      }
+
       coins.each do |value, coinName|
-        puts coinName
         coinCount = (remainingAmount / value.to_f).to_i
-        puts "coinCount #{coinCount} at #{value}"
         remainingAmount = ((remainingAmount - coinCount * value) * 100).round.to_f / 100
-        puts "remainingAmount #{remainingAmount}"
-        message += " " + coinCount.to_s + " " + coinName
+        output[:Message] += " " + coinCount.to_s + " " + coinName
+        output[:Change].push({Denomination: coinName, Count: coinCount})
       end
 
-      render json: { message:message }.to_json, status: :ok
+      render json: output.to_json, status: :ok
     end
   end
