@@ -1,5 +1,8 @@
 # Quickstart: Ruby on Rails Resource Server with FusionAuth
 
+> [!WARNING]
+> This repository is generated from content that lives at [github.com/FusionAuth/fusionauth-site](https://github.com/FusionAuth/fusionauth-site/tree/main/astro/localcode/quickstart-rails-api). Changes to files here _will be overwritten by that automation_. File an issue or pull request with [fusionauth-site](https://github.com/FusionAuth/fusionauth-site) instead.
+
 This repository contains a Ruby on Rails application that works with a locally-running instance of [FusionAuth](https://fusionauth.io/), the authentication and authorization platform.
 
 ## Setup
@@ -40,20 +43,22 @@ You can log into the [FusionAuth admin UI](http://localhost:9011/admin) and look
 
 The `complete-application` directory contains a minimal Ruby on Rails app configured to authenticate with locally running FusionAuth.
 
-Install the dependencies via the Gemfile
-```
+Install the dependencies via the Gemfile:
+
+```shell-session
 cd complete-application
 bundle install
 bundle e rails s -p 4001
 ```
 
-The app is now serving two api endpoints
+The app is now serving two api endpoints:
+
  - [http://localhost:4001/make-change](http://localhost:4001/make-change) - this endpoint calculates the change to make from a given total
  - [http://localhost:4001/panic](http://localhost:4001/panic) - this endpoint simulates notifying the police of an incident.
 
 You can login with a user preconfigured during Kickstart, `teller@example.com` with the password of `password` and `applicationId` by calling:
 
-```sh
+```shell-session
 curl --location 'https://local.fusionauth.io/api/login' \
 --header 'Authorization: this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works' \
 --header 'Content-Type: application/json' \
@@ -64,20 +69,16 @@ curl --location 'https://local.fusionauth.io/api/login' \
 }'
 ```
 
-You can take the token from the response and then call one of the endpoints listed above by calling:
+You can take the token from the response and then call one of the endpoints listed above with one of the following commands:
 
-```sh
+```shell-session
 curl --location 'http://localhost:4001/make-change?total=5.12' \
 --cookie 'app.at=<your_token>'
 ```
 
-or
-
-```sh
+```shell-session
 curl --location --request POST 'http://localhost:4001/panic' \
 --cookie 'app.at=<your_token>'
-```
-
 ### Further Information
 
 Visit https://fusionauth.io/docs/quickstarts/quickstart-ruby-on-rails-api for a step-by-step guide on how to build this Ruby on Rails API from scratch.
